@@ -216,24 +216,42 @@ git revert <хэш код коммита>
 ## Лог команд
 
 ```bash
-git config --global user.name "4514 Дударев И.С."
+## Лог команд
+
+```bash
+git config --global user.name "4514 Дударевв И.С"
 git config --global user.email "i.dudarev04@gmail.com"
 git config --list
+cd "/c/Users/iduda/OneDrive/Desktop/2 курс/Основы Программирования/Лабы/Lab6"
 git clone https://github.com/Brostall/LR6.git
+cd LR6
 git pull
 git branch -a
+git checkout master
+git log
 git log --oneline --graph --all
 git show
+git merge dungeon
+git checkout dungeon
+echo "Строка из ветки dungeon" > conflict.txt
+git add conflict.txt
+git commit -m "Изменена строка в ветке dungeon"
 git checkout master
-git merge <побочная ветка>
-git add <имя файла>
-git commit
-git branch -d <побочная ветка>
+echo "Строка из ветки master" > conflict.txt
+git add conflict.txt
+git commit -m "Изменена строка в ветке master"
+git merge dungeon
+git add conflict.txt
+git commit -m "Слияние ветки dungeon в master"
+git branch --merged
+git branch -D dungeon
+git branch
 git add .
-git commit -m "<комментарий>"
-git revert <хэш коммита>
-git checkout -b report
-git log --pretty=format:"%h %ad %an %s" --date=short
-git push -u origin report
-git push origin master
+git commit -m "комментарий 1"
+git add .
+git commit -m "комментарий 2"
+git add .
+git commit -m "комментарий 3"
+git log --oneline
+git revert <хэш код коммита>
 ```
